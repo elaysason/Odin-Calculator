@@ -44,7 +44,6 @@ button {
 button:hover {
   background-color: #e71313;
 }
-
 button#equal {
   width: 75%; /* Example: make it span two columns */
 }

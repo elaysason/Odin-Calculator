@@ -206,7 +206,6 @@ equal_button.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
   const key = event.key;
   console.log(key);
-  // Prevent default behavior to avoid double-triggering
   if (
     key === "Enter" ||
     key === "Backspace" ||
