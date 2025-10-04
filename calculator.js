@@ -75,27 +75,6 @@ function handleClear() {
   });
 }
 let backspace_symbol = "&#x232B;";
-// function handleInput(key) {
-//   if (!isNaN(key)) {
-//     numberButtons.find((button) => button.textContent.trim() === key).click();
-//   } else if (key === "=") {
-//     equal_button.click();
-//   } else if (key === "CLR") {
-//     clear_button.click();
-//   } else if (key === "Backspace") {
-//     handleBackspace();
-//   } else if (key === ".") {
-//     handleDecimal();
-//   } else if (Object.values(opreations).includes(key)) {
-//     let keyWithKeyStroke = Object.keys(opreations).find(
-//       (dict_key) => opreations[dict_key] === key
-//     );
-//     console.log(keyWithKeyStroke);
-//     let button = document.querySelector("#" + keyWithKeyStroke);
-//     console.log(button);
-//     handleOpreation(button);
-//   }
-// }
 
 function handleInput(key) {
   if (!isNaN(key)) {
@@ -121,9 +100,11 @@ function handleInput(key) {
 }
 
 function handleDecimal() {
-  display_input.value += ".";
-  cur_number += ".";
-  decimal_button.disabled = true;
+  if (cur_number != "" || number1 != "" || number2 != "") {
+    display_input.value += ".";
+    cur_number += ".";
+    decimal_button.disabled = true;
+  }
 }
 
 function handleOpreation(button) {
@@ -210,7 +191,7 @@ document.addEventListener("keydown", (event) => {
     key === "Enter" ||
     key === "Backspace" ||
     ["+", "-", "*", "/"].includes(key) ||
-    (key >= "0" && key <= "9") || // ✅ Changed this line
+    (key >= "0" && key <= "9") ||
     key === "."
   ) {
     event.preventDefault();
